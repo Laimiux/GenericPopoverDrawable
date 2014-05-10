@@ -23,4 +23,4 @@ A generic popover drawable for Android views.
 ```
 
 
-![Example Image](sample.png "Example Image")
+![Example Image](sample.png)
