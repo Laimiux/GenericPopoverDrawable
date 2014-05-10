@@ -16,6 +16,7 @@ import android.graphics.drawable.Drawable;
  * Created by laimonasturauskas on 5/7/14.
  */
 public class GenericPopoverDrawable extends Drawable {
+    private static final int STROKE_WIDTH = 2; // In pixels
     private int mDrawableWidth = -1;
     private int mDrawableHeight = -1;
 
@@ -60,17 +61,20 @@ public class GenericPopoverDrawable extends Drawable {
         canvas.drawPath(path, paint);
 
         // Draw the border
+        int borderOffset = STROKE_WIDTH;
+
         Path borderPath = new Path();
-        borderPath.moveTo(bounds.left, bounds.top);
-        borderPath.lineTo(bounds.left, bounds.bottom - mArrowSize);
-        borderPath.lineTo(leftTrianglePoint.x, leftTrianglePoint.y);
-        borderPath.lineTo(bottomTrianglePoint.x, bottomTrianglePoint.y);
-        borderPath.lineTo(rightTrianglePoint.x, rightTrianglePoint.y);
-        borderPath.lineTo(bounds.right, rightTrianglePoint.y);
-        borderPath.lineTo(bounds.right, bounds.top);
+        borderPath.moveTo(bounds.left + borderOffset, bounds.top + borderOffset);
+        borderPath.lineTo(bounds.left + borderOffset, bounds.bottom - mArrowSize);
+        borderPath.lineTo(leftTrianglePoint.x + borderOffset, leftTrianglePoint.y);
+        borderPath.lineTo(bottomTrianglePoint.x, bottomTrianglePoint.y - borderOffset);
+        borderPath.lineTo(rightTrianglePoint.x - borderOffset, rightTrianglePoint.y);
+        borderPath.lineTo(bounds.right - borderOffset, rightTrianglePoint.y);
+        borderPath.lineTo(bounds.right - borderOffset, bounds.top + borderOffset);
         borderPath.close();
 
         paint.setColor(mBorderColor);
+        paint.setStrokeWidth(STROKE_WIDTH);
         paint.setStyle(Paint.Style.STROKE);
         canvas.drawPath(borderPath, paint);
     }
