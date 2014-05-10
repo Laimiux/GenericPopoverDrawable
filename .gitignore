@@ -1,8 +1,30 @@
-.gradle
-/local.properties
-/.idea
+# Mac files
 .DS_Store
+
+# Built application files
+*.apk
+*.ap_
+
+# Files for the Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+
+# Gradle files
+.gradle/
+build/
 /gradle
 /gradlew
 /gradlew.bat
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# IntelliJ/Android Studio files
+/.idea
 /*.iml
