@@ -3,12 +3,12 @@ GenericPopoverDrawable
 
 A generic popover drawable for Android views.
 
-# Installation 
+### Installation 
 * Copy popover folder as a module to your project
 * Add **include ':popover'** in your settings.gradle
 
-# Code Sample 
-```
+### Code Sample 
+```java
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
